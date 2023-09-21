@@ -1,26 +1,44 @@
 {
   "project_info": {
-    "project_number": "903059244415",
-    "project_id": "ondamenu-3dc99",
-    "storage_bucket": "ondamenu-3dc99.appspot.com"
+    "project_number": "1024532317222",
+    "firebase_url": "https://ondamenu-pos-default-rtdb.firebaseio.com",
+    "project_id": "ondamenu-pos",
+    "storage_bucket": "ondamenu-pos.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:903059244415:android:a1f26dd4f697c1bc0d464a",
+        "mobilesdk_app_id": "1:1024532317222:android:c8cd7594f341f563e412e7",
         "android_client_info": {
-          "package_name": "com.ondamenu.ondamenu"
+          "package_name": "com.example.odm_ui"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1024532317222-qc3h0kt0qfu77jct3o0vtb9itgbcce5n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDTY2xHnynDXGTYcTOOacO9xi2D-PdX124"
+          "current_key": "AIzaSyBQWjeIjGY_9B1m6JhT7Tkt2AtvRtiW8mk"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024532317222-qc3h0kt0qfu77jct3o0vtb9itgbcce5n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1024532317222-r7ft01ntg72a0q6k62lrlrhsh2oifaju.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.odmUi"
+              }
+            }
+          ]
         }
       }
     }
