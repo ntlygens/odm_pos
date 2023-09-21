@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBHafLz0YNM3hQg2C2j7HYbHHZ-Y3X6cG0',
-    appId: '1:903059244415:web:2b75d1c15b76a4bd0d464a',
-    messagingSenderId: '903059244415',
-    projectId: 'ondamenu-3dc99',
-    authDomain: 'ondamenu-3dc99.firebaseapp.com',
-    storageBucket: 'ondamenu-3dc99.appspot.com',
-    measurementId: 'G-1CCV8H9S7H',
+    apiKey: 'AIzaSyBQWjeIjGY_9B1m6JhT7Tkt2AtvRtiW8mk',
+    appId: '1:1024532317222:web:44dbb556f20fe998e412e7',
+    messagingSenderId: '1024532317222',
+    projectId: 'ondamenu-pos',
+    authDomain: 'ondamenu-pos.firebaseapp.com',
+    storageBucket: 'ondamenu-pos.appspot.com',
+    measurementId: 'G-L2XVZWQYST',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDTY2xHnynDXGTYcTOOacO9xi2D-PdX124',
-    appId: '1:903059244415:android:a1f26dd4f697c1bc0d464a',
-    messagingSenderId: '903059244415',
-    projectId: 'ondamenu-3dc99',
-    storageBucket: 'ondamenu-3dc99.appspot.com',
+    apiKey: 'AIzaSyBQWjeIjGY_9B1m6JhT7Tkt2AtvRtiW8mk',
+    appId: '1:1024532317222:web:44dbb556f20fe998e412e7',
+    messagingSenderId: '1024532317222',
+    projectId: 'ondamenu-pos',
+    storageBucket: 'ondamenu-pos.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDz_swJBlkooy4geor_8RkvFK_NKxNhPWA',
-    appId: '1:903059244415:ios:592bf63101ff3c640d464a',
-    messagingSenderId: '903059244415',
-    projectId: 'ondamenu-3dc99',
-    storageBucket: 'ondamenu-3dc99.appspot.com',
-    iosBundleId: 'com.ondamenu.ondamenu',
+    apiKey: 'AIzaSyBQWjeIjGY_9B1m6JhT7Tkt2AtvRtiW8mk',
+    appId: '1:1024532317222:ios:44dbb556f20fe998e412e7',
+    messagingSenderId: '1024532317222',
+    projectId: 'ondamenu-pos',
+    storageBucket: 'ondamenu-pos.appspot.com',
+    iosBundleId: 'com.example.odmUi',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDz_swJBlkooy4geor_8RkvFK_NKxNhPWA',
-    appId: '1:903059244415:ios:39800c2df61dfcc60d464a',
-    messagingSenderId: '903059244415',
-    projectId: 'ondamenu-3dc99',
-    storageBucket: 'ondamenu-3dc99.appspot.com',
-    iosBundleId: 'com.ondamenu.ondamenu.RunnerTests',
+    apiKey: 'AIzaSyBQWjeIjGY_9B1m6JhT7Tkt2AtvRtiW8mk',
+    appId: '1:1024532317222:ios:44dbb556f20fe998e412e7',
+    messagingSenderId: '1024532317222',
+    projectId: 'ondamenu-pos',
+    storageBucket: 'ondamenu-pos.appspot.com',
+    iosBundleId: 'com.example.odmUi.RunnerTests',
   );
 }
