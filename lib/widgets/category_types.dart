@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:ondamenu/screens/service_products_page.dart';
 import 'package:ondamenu/services/firebase_services.dart';
@@ -7,12 +6,14 @@ class CategoryTypes extends StatefulWidget {
   final List categoryTypeList;
   final String serviceCategoryName;
   final String serviceCategoryID;
+  final String serviceCategoryType;
   final Function(String)? onSelected;
   CategoryTypes({
     required this.categoryTypeList,
     this.onSelected,
     required this.serviceCategoryName,
     required this.serviceCategoryID,
+    required this.serviceCategoryType,
   });
 
   @override
@@ -25,8 +26,10 @@ class _CategoryTypesState extends State<CategoryTypes> {
   String _selectedProductSrvcID = "selected-product-service-id";
   String _selectedSrvcCtgryName = "selected-service-name";
   String _selectedSrvcCtgryID = "selected-service-id";
+  String _selectedSrvcCtgryType = "selected-service-type";
 
-  late String _isCustomerService;
+  bool _isCustomerService = false;
+  var slctdSrvc;
 
   FirebaseServices _firebaseServices = FirebaseServices();
 
@@ -99,14 +102,25 @@ class _CategoryTypesState extends State<CategoryTypes> {
 
   // Check if service type for product or customer before requesting data
   Future _checkServiceType() async {
-    if( widget.categoryTypeList[0].data['srvcType'] == null)  {
-      print ('its product servcice');
-    }
+    // widget.categoryTypeList.forEach((element) {
+    //   print('the ID: ${element} is a ${widget.serviceCategoryType} type object.');
+    // });
+    // if( widget.categoryTypeList[0]['srvcType'] == "product")  {
+    if( widget.serviceCategoryType == "customer")  {
+      _isCustomerService = true;
+      // slctdSrvc = _firebaseServices.customerSrvcsRef;
+      // print ('this Service ${widget.serviceCategoryName} is a customer service');
+    } /*else {
+      slctdSrvc = _firebaseServices.productsRef;
+      // print ('this service is type: ${widget.serviceCategoryType}');
+      // print ('this service is type: ${widget.categoryTypeList[0].data['srvcType']}');
+    }*/
   }
 
   @override
   void initState() {
-    _isCustomerService = "VnhXnkWdbvbZcSm7duYF";
+    // _isCustomerService = true;
+    // _isCustomerService = "VnhXnkWdbvbZcSm7duYF";
     _checkServiceType();
     super.initState();
   }
@@ -115,6 +129,8 @@ class _CategoryTypesState extends State<CategoryTypes> {
   @override
   Widget build(BuildContext context) {
     // print("amt: ${widget.categoryTypeList.length}");
+    // print("srvcType: ${widget.serviceCategoryType}");
+    // print("customer srvcType: ${_isCustomerService}");
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: 8,
@@ -130,15 +146,22 @@ class _CategoryTypesState extends State<CategoryTypes> {
           itemCount: widget.categoryTypeList.length,
           itemBuilder: (BuildContext ctx, index) {
             // if(widget.categoryTypeList.isEmpty){};
+            if(_isCustomerService) {
+              slctdSrvc = _firebaseServices.customerSrvcsRef;
+            } else {
+              slctdSrvc = _firebaseServices.productsRef;
+            }
             return StreamBuilder(
-              stream: _firebaseServices.productsRef
+              stream: slctdSrvc
                   .doc("${widget.categoryTypeList[index]}")
                   .snapshots(),
               builder: (context, AsyncSnapshot productSnap) {
 
                 if(productSnap.connectionState == ConnectionState.active) {
                   if(productSnap.hasData) {
-                    // print("ID: ${productSnap.data.id} \n Name: ${productSnap.data['name']}");
+                    // print('has data ${slctdSrvc}');
+                    // print('productT: ${productSnap.data["name"]}');
+                    print("ID: ${productSnap.data.id} \n Name: ${productSnap.data['name']}");
                     return GestureDetector(
                       onTap: () async {
                         _selectedProductName = await "${productSnap.data['name']}";

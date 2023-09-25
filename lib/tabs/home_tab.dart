@@ -46,7 +46,7 @@ class _HomeTabState extends State<HomeTab> {
 
             if (docRef == true) {
               _textVar = element.id;
-              print("${_textVar} is Selected");
+              print("${element['name']} is Selected");
             }
 
             // docRef.collection('sid');
@@ -60,7 +60,7 @@ class _HomeTabState extends State<HomeTab> {
         // .toString()
     ;
 
-    print("thi is: ${_myVar}");
+    // print("thi is: ${_textVar}");
     return _textVar;
   }
 
@@ -81,9 +81,8 @@ class _HomeTabState extends State<HomeTab> {
   @override
   void initState() {
     _pageController = PageController();
-    _textVar = "AnnNjTT8vmYSAEpT0rPg";
     /// for use with ondamenu-pos db ///
-    /// _textVar = "VnhXnkWdbvbZcSm7duYF"; ///
+    _textVar = "VnhXnkWdbvbZcSm7duYF"; ///
     super.initState();
   }
 
@@ -95,6 +94,7 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
+    _getSelectedSrvc();
     return Container(
       child: Stack(
         children: [
@@ -107,7 +107,6 @@ class _HomeTabState extends State<HomeTab> {
               horizontal: 20
             ),
             child: StreamBuilder<QuerySnapshot>(
-              // stream: _firebaseServices.usersRef
               stream: _firebaseServices.servicesRef
                 .orderBy("btnOrder", descending: false)
                   .snapshots(),
@@ -150,12 +149,12 @@ class _HomeTabState extends State<HomeTab> {
                            itemBuilder: (BuildContext context, int index) {
                              return GestureDetector(
                                onTap: () {
-                                 print("eDOc: ${_srvcData[index]['name']} \n");
-                                 print("eDOc2: ${_srvcData[index].id}");
-
                                  setState(() {
                                    _textVar = _srvcData[index].id;
                                  });
+                                 print("HomeTab Srvc Data Name: ${_srvcData[index]['name']} \n");
+                                 print("HomeTab Srvc Data Name: ${_srvcData[index].id}");
+
                                },
                                child: Card(
                                  elevation: 4,
@@ -203,8 +202,10 @@ class _HomeTabState extends State<HomeTab> {
                             child: PageView(
                               controller: _pageController,
                               onPageChanged: (num) {
+                                // print('textvar: = ${_textVar}');
                                 setState(() {
                                   _selectedPage = num;
+                                  // print('pg num: ${_selectedPage} selected from ${_textVar}');
                                 });
                               },
                               children: [

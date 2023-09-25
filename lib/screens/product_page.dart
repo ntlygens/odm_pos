@@ -86,6 +86,7 @@ class _ProductPageState extends State<ProductPage> {
                             categoryTypeList: _categoryType,
                             serviceCategoryID: "selected-service-id",
                             serviceCategoryName: "selected-service-name",
+                            serviceCategoryType: "selected-category-type",
                           ),
                         ],
                       );

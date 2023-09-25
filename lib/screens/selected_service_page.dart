@@ -116,6 +116,7 @@ class _SelectedServicePageState extends State<SelectedServicePage> {
 
                   if (snapshot.connectionState == ConnectionState.done) {
                     List _docs = snapshot.data!['type'];
+                    String _srvc = snapshot.data!['srvcType'];
                     return ListView(
                         padding: EdgeInsets.all(0),
                         children: [
@@ -170,6 +171,7 @@ class _SelectedServicePageState extends State<SelectedServicePage> {
                                     categoryTypeList: _docs,
                                     serviceCategoryName: snapshot.data['name'],
                                     serviceCategoryID: snapshot.data.id,
+                                    serviceCategoryType: _srvc,
 
                                   ),
                                 ),
